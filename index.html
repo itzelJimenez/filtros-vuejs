@@ -7,6 +7,19 @@
   <div id="app">
   	  <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
   	  <p>Tu nombre en mayúscula {{ nombre | uppercsase}} </p>
+
+  	  <form @submit.prevent="submit">
+  	  	<h2>¿Cuáles son tus cursos favoritos?</h2>
+  	  	<input type="checkbox" id='vue' value="vue" v-model="cursos">
+  	  	<label for="vue">Curso de vueJS</label>
+  	  	<input type="checkbox" id='seo' value="seoseo" v-model="cursos">
+  	  	<label for="seo">Curso de SEO</label>
+  	  	<input type="checkbox" id='rect' value="rect" v-model="cursos">
+  	  	<label for="rect">Curso de React y Redux</label>
+  	  	<input type="checkbox" id='growth' value="growth" v-model="cursos">
+  	  	<label for="growth">Curso de Growth Marketing</label><br>
+  	  	<button type="submit">Enviar</button>
+  	  </form>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -15,10 +28,17 @@
       el: '#app',
       data: {
         nombre: '',
+        cursos: []
       },
       filters: {
       	uppercsase: function(str){
       		return str.toUpperCase()
+      	}
+      },
+      methods: {
+      	submit: function(){
+      		console.log('Se ejecuta el método submit')
+      		console.log(this.cursos)
       	}
       }
     })
