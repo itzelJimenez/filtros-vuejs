@@ -5,11 +5,8 @@
 </head>
 <body>
   <div id="app">
-  	  <h1>{{ titulo | uppercase }}</h1>
-	  <h2>{{ subtitulo | lowercase }}</h2>
-	  <p>
-	  	{{ texto | capitalize }}
-	  </p>
+  	  <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
+  	  <p>Tu nombre en mayúscula {{ nombre | uppercsase}} </p>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -17,14 +14,12 @@
     let app = new Vue({
       el: '#app',
       data: {
-        titulo: 'TITULO',
-        subtitulo: 'subtitulo',
-        texto: 'lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        nombre: '',
       },
-      filters:{
-      	uppercase:  str =>  (str + ' uppercase').toUpperCase(),
-      	lowercase: str  => str.toLowerCase(),
-      	capitalize: str => str.charAt(0).toUpperCase() + str.slice(1)
+      filters: {
+      	uppercsase: function(str){
+      		return str.toUpperCase()
+      	}
       }
     })
   </script>
