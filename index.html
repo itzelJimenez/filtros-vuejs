@@ -5,26 +5,22 @@
 </head>
 <body>
   <div id="app">
-  	  <h1>{{ titulo | uppercase }}</h1>
-	  <h2>{{ subtitulo | lowercase }}</h2>
-	  <p>
-	  	{{ texto | capitalize }}
-	  </p>
+  	<button v-on:click="sumar">Sumar 1</button>
+  	<button v-on:click="restar">Restar 1</button>
+	El contador está en {{ contador }}
   </div>
 
   <script src="https://unpkg.com/vue"></script>
   <script type="text/javascript">
+  	let _this = this //Referenciando al objeto window
     let app = new Vue({
       el: '#app',
       data: {
-        titulo: 'TITULO',
-        subtitulo: 'subtitulo',
-        texto: 'lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        contador: 0,
       },
-      filters:{
-      	uppercase:  str =>  (str + ' uppercase').toUpperCase(),
-      	lowercase: str  => str.toLowerCase(),
-      	capitalize: str => str.charAt(0).toUpperCase() + str.slice(1)
+      methods: {
+      	sumar: () => {this.contador++},
+      	restar: () => {this.contador--}
       }
     })
   </script>
