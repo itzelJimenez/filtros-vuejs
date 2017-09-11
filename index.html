@@ -14,63 +14,15 @@
   <body>
     <div id="root">
 
-      <h1>All Tasks</h1>
+      <task-list>
 
-      <ul>
+        <task-list></task-list>
 
-        <li v-for="task in tasks"  v-text="task.description"></li>
-
-      </ul>
-
-      <h2>Incomplete Tasks</h2>
-
-      <ul>
-
-        <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
-
-      </ul>
+      </task-list>
 
     </div>
 
     <script src="https://unpkg.com/vue"></script>
-    <script type="text/javascript">
-
-      var app = new Vue ({
-
-        el: "#root",
-
-        data: {
-
-          tasks: [
-
-            { description: 'Go to the store', completed : true},
-
-            { description: 'Finish screemcast', completed : false},
-
-            { description: 'Make donation', completed : false},
-
-            { description: 'Clear inbox', completed : false},
-
-            { description: 'Make dinner', completed : false},
-
-            { description: 'Clean room', completed : true}
-
-          ]
-
-        },
-
-        computed: {
-
-          reversedMessage() {
-
-            return this.message.split('').reverse().join('');            
-
-          }
-
-        }
-
-      })
-
-    </script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
