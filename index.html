@@ -1,52 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Curso Vue.js</title>
-</head>
-<body>
-  <div id="root">
+  <head>
 
-    <ul>
-    
-      <li v-for="name in names" v-text="name"></li>
+    <title>Curso Vue.js</title>
 
-    </ul>
+    <style type="text/css">
 
-    <input type="text" name="input" v-model="newName" >
+      .is-loading { background: red }
 
-    <button id="button" @click="addName">Add name</button>
+    </style>
+  </head>
 
-    <p>The value of the input is: </p>
+  <body>
+    <div id="root">
 
-  </div>
+      <button :class="{ 'is-loading': true }">Class</button>
 
-  <script src="https://unpkg.com/vue"></script>
-  <script type="text/javascript">
+    </div>
 
-    var app = new Vue ({
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javascript">
 
-      el: "#root",
+      var app = new Vue ({
 
-      data: {
+        el: "#root",
 
-        newName: ' ',
+        data: {
 
-        names: ['Jane', 'Luis', 'Erik', 'Angie']
+          className: 'color-red'
 
-      },
-
-      methods: {
-
-        addName(){
-
-          this.names.push(this.newName);
-
-          this.newName = ' ';
         }
-      },
 
-    })
+      })
 
-  </script>
-</body>
+    </script>
+  </body>
 </html>
