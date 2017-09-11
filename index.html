@@ -1,54 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Curso Vue.js</title>
-</head>
-<body>
-  <div id="app">
-  	  <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
-  	  <p>Tu nombre en mayúscula {{ nombre | uppercsase}} </p>
+  <head>
 
-  	  <form @submit.prevent="submit" action="" method="get">
-  	  	<h2>¿Cuáles son tus cursos favoritos?</h2>
-  	  	<template v-for="curso in cursos">
-	  	  	<input type="checkbox" v-bind:id='curso.value' v-bind:value="curso.value" v-model="cursosSeleccionados">
-	  	  	<label v-bind:for="curso.value">{{curso.nombre}}</label>
-  	  	</template>
-  	  	<button type="submit">Enviar</button>
-  	  </form>
+    <title>Curso Vue.js</title>
 
-  </div>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 
-  <script src="https://unpkg.com/vue"></script>
-  <script type="text/javascript">
-    let app = new Vue({
-      el: '#app',
-      data: {
-        nombre: '',
-        cursos: [
-        	{	nombre: 'Curso de vueJS', 
-        		value: 'vue'  },
-        	{	nombre: 'Curso de SEO', 
-        		value: 'seo'  },
-        	{	nombre: 'Curso de React y Redux', 
-        		value: 'react' },
-        	{	nombre: 'Curso de Growth', 
-        		value: 'growth' }
-        ],
-        cursosSeleccionados: []
-      },
-      filters: {
-      	uppercsase: function(str){
-      		return str.toUpperCase()
-      	}
-      },
-      methods: {
-      	submit: function(){
-      		console.log('Se ejecuta el método submit')
-      		console.log(this.cursosSeleccionados)
-      	}
-      }
-    })
-  </script>
-</body>
+  </head>
+
+  <body>
+    <div id="root">
+
+      <template>
+        <v-layout>
+          <v-flex xs12 sm6 offset-sm3>
+            <v-card>
+              <v-card-media src="http://parentesis.com/imagesPosts/premios-mejor-mwc-2015-g" height="500px" style="margin-top: 10%;">
+              </v-card-media>
+              <v-card-title primary-title>
+                <div>
+                  <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
+                  <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn flat class="orange--text">Share</v-btn>
+                <v-btn flat class="orange--text">Explore</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </template>
+
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
 </html>
