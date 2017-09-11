@@ -12,9 +12,9 @@
 
     </ul>
 
-    <input type="text" name="input" id="input" >
+    <input type="text" name="input" v-model="newName" >
 
-    <button id="button">Add name</button>
+    <button id="button" @click="addName">Add name</button>
 
     <p>The value of the input is: </p>
 
@@ -29,23 +29,21 @@
 
       data: {
 
+        newName: ' ',
+
         names: ['Jane', 'Luis', 'Erik', 'Angie']
 
       },
 
-      mounted(){
+      methods: {
 
-        document.querySelector('#button').addEventListener('click', () => {
-          
-          let name = document.querySelector('#input');
+        addName(){
 
-          app.names.push(name.value);
+          this.names.push(this.newName);
 
-          name.value = ' ';
-
-        })
-        
-      }
+          this.newName = ' ';
+        }
+      },
 
     })
 
