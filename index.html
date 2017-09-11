@@ -6,7 +6,7 @@
 
     <style type="text/css">
 
-      .is-loading { background: red }
+      
 
     </style>
   </head>
@@ -14,7 +14,13 @@
   <body>
     <div id="root">
 
-      <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Class</button>
+      <h1>All Tasks</h1>
+
+      <ul>
+
+        <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+
+      </ul>
 
     </div>
 
@@ -27,15 +33,29 @@
 
         data: {
 
-          isLoading: false
+          tasks: [
+
+            { description: 'Go to the store', completed : true},
+
+            { description: 'Finish screemcast', completed : false},
+
+            { description: 'Make donation', completed : false},
+
+            { description: 'Clear inbox', completed : false},
+
+            { description: 'Make dinner', completed : false},
+
+            { description: 'Clean room', completed : true}
+
+          ]
 
         },
 
-        methods: {
+        computed: {
 
-          toggleClass() {
+          reversedMessage() {
 
-            this.isLoading = true;
+            return this.message.split('').reverse().join('');            
 
           }
 
