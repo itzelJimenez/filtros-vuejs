@@ -2,9 +2,19 @@ Vue.component('message', {
 
 	props: ['title', 'body', 'image'],
 
+	data(){
+
+		return {
+
+			isVisible: true
+
+		}
+
+	},
+
 	template: `
 
-		        <v-layout>
+		        <v-layout class="message" v-show="isVisible">
 		          <v-flex xs12 sm6 offset-sm3>
 		            <v-card>
 		              <v-card-media src="https://i1.wp.com/medioambienteynaturaleza.com/wp-content/uploads/2015/08/Animales-tiernos-aj.jpg" height="500px">
@@ -18,18 +28,29 @@ Vue.component('message', {
 		              <v-card-actions>
 		                <v-btn flat class="orange--text">Share</v-btn>
 		                <v-btn flat class="orange--text">Explore</v-btn>
+		                <v-btn flat class="orange--text" @click="hideModal">Close</v-btn>
 		              </v-card-actions>
 		            </v-card>
 		          </v-flex>
 		        </v-layout>
 
-	`
+	`,
+
+	methods: {
+
+		hideModal(){
+
+			this.isVisible = false;
+
+		}
+
+	}
 	
 
-})
+});
 
 new Vue({
 
 	el: '#root'
 	
-})
+});
